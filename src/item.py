@@ -48,6 +48,9 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls):
+        """
+        класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv
+        """
         with open("/home/jstoronsky/hw_13.1-1/src/items.csv", "rt", encoding="windows-1251") as file:
             new_file = csv.DictReader(file)
             for position in new_file:
@@ -58,5 +61,8 @@ class Item:
 
     @staticmethod
     def string_to_number(str_num):
+        """
+        статический метод, возвращающий число из числа-строки
+        """
         int_num = int(float(str_num))
         return round(int_num)

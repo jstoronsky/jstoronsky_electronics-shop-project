@@ -37,13 +37,26 @@ class Item:
 
     @property
     def name(self):
-        pass
+        return self.__name.title()
 
     @name.setter
     def name(self, name):
-        pass
+        if len(name) <= 10:
+            self.__name = name
+        else:
+            print("Длина наименования товара превышает 10 символов")
 
     @classmethod
     def instantiate_from_csv(cls):
-        pass
+        with open("/home/jstoronsky/hw_13.1-1/src/items.csv", "rt", encoding="windows-1251") as file:
+            new_file = csv.DictReader(file)
+            for position in new_file:
+                name = position['name']
+                price = position['price']
+                quantity = position['quantity']
+                cls.all.append(cls(name, price, quantity))
 
+    @staticmethod
+    def string_to_number(str_num):
+        int_num = int(float(str_num))
+        return round(int_num)

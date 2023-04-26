@@ -1,4 +1,5 @@
 from src.item import Item
+
 if __name__ == '__main__':
     item = Item('Телефон', 10000, 5)
 

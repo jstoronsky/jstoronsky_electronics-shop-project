@@ -1,4 +1,5 @@
 import csv
+import os
 
 
 class Item:
@@ -51,7 +52,8 @@ class Item:
         """
         класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv
         """
-        with open("/home/jstoronsky/hw_13.1-1/src/items.csv", "rt", encoding="windows-1251") as file:
+        path = os.path.join(os.path.dirname(__file__), "items.csv")
+        with open(path, "rt", encoding="windows-1251") as file:
             new_file = csv.DictReader(file)
             for position in new_file:
                 name = position['name']
@@ -65,4 +67,4 @@ class Item:
         статический метод, возвращающий число из числа-строки
         """
         int_num = int(float(str_num))
-        return round(int_num)
+        return int_num

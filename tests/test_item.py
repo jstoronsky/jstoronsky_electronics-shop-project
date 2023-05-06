@@ -1,6 +1,6 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 from src.item import Item
-
+from src.phone import Phone
 
 def test_calculate_total_price():
     item1 = Item("Смартфон", 10000, 20)
@@ -43,3 +43,12 @@ def test_repr_str():
     item1 = Item("Смартфон", 10000, 20)
     assert repr(item1) == "Item('Смартфон', 10000, 20)"
     assert str(item1) == 'Смартфон'
+
+
+def test_add():
+    item2 = Item("Смартфон", 10000, 20)
+    phone2 = Phone("iPhone SE", 50000, 5, 1)
+    assert item2 + phone2 == 25
+    assert phone2 + phone2 == 10
+    assert item2 + 5 is None
+    assert phone2 + 3 is None

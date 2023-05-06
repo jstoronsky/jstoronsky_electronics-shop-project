@@ -1,6 +1,5 @@
-from src.item import Item
 from src.phone import Phone
-
+from src.item import Item
 if __name__ == '__main__':
 
     # смартфон iPhone 14, цена 120_000, количество товара 5, симкарт 2

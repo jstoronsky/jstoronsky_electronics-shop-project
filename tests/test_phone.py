@@ -1,5 +1,5 @@
 import pytest
-
+from src.item import Item
 from src.phone import Phone
 
 
@@ -12,5 +12,7 @@ def test_repr_str():
 def test_number_of_sim():
     phone2 = Phone("iPhone SE", 50000, 5, 1)
     assert phone2.number_of_sim == 1
+    with pytest.raises(ValueError, match=r"Количество физических SIM-карт должно быть целым числом больше нуля"):
+        Phone("iPhone SE", 50000, 5, -10)
     with pytest.raises(ValueError, match=r"Количество физических SIM-карт должно быть целым числом больше нуля"):
         phone2.number_of_sim = 0

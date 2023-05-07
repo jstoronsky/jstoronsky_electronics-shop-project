@@ -10,7 +10,10 @@ class Phone(Item):
         :param number_of_sim: количество сим-карт
         """
         super().__init__(name, price, quantity)
-        self.__number_of_sim = number_of_sim
+        if number_of_sim > 0:
+            self.__number_of_sim = number_of_sim
+        else:
+            raise ValueError(f"Количество физических SIM-карт должно быть целым числом больше нуля")
 
     @property
     def number_of_sim(self):

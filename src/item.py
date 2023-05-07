@@ -72,6 +72,8 @@ class Item:
     def __add__(self, other):
         if isinstance(other, self.__class__):
             return self.quantity + other.quantity
+        elif isinstance(self, other.__class__):
+            return self.quantity + other.quantity
         return None
 
     def __repr__(self):

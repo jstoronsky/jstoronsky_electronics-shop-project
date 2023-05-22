@@ -57,11 +57,11 @@ class Item:
             raise Exception("Длина наименования товара превышает 10 символов")
 
     @classmethod
-    def instantiate_from_csv(cls):
+    def instantiate_from_csv(cls, file_csv):
         """
         класс-метод, инициализирующий экземпляры класса Item данными из файла src/items.csv
         """
-        path = os.path.join(os.path.dirname(__file__), "items.csv")
+        path = os.path.join(os.path.dirname(__file__), file_csv)
         if not os.path.exists(path):
             raise FileNotFoundError("Отсутствует файл items.csv")
         with open(path, "rt", encoding="windows-1251") as file:
@@ -74,7 +74,6 @@ class Item:
                     price = position['price']
                     quantity = position['quantity']
                     cls.all.append(cls(name, price, quantity))
-
 
     @staticmethod
     def string_to_number(str_num):
